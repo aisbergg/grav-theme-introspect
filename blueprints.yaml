@@ -1,0 +1,15 @@
+name: Introspect
+version: 1.0.0
+description: "A responsive theme from templated.co, ported to Grav."
+icon: desktop
+author:
+  name: Andre Lehman
+  email: aisberg@posteo.de
+homepage: https://github.com/Aisbergg/grav-theme-introspect
+demo: https://github.com/Aisbergg/grav-theme-introspect
+keywords: introspect, theme, modern, responsive, html5, css3
+bugs: https://github.com/Aisbergg/grav-theme-introspect/issues
+license: MIT
+
+form:
+  validation: loose

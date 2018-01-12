@@ -1,0 +1,18 @@
+<div class="inner">
+  {% for feature in page.header.features %}
+  <article>
+    <div class="content">
+      <span class="icon fa-{{feature.icon}}"></span>
+      <header>
+        <h3>{{feature.title}}</h3>
+      </header>
+      <p>{{feature.text}}</p>
+      {% if feature.button %}
+        <ul class="actions">
+          <li><a href="{{feature.button.url}}" class="button alt">{{feature.button.text}}</a></li>
+        </ul>
+      {% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</div>

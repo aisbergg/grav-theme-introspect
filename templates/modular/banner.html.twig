@@ -1,0 +1,19 @@
+{% import 'macros/macros.html.twig' as macros %}
+{% set banner_image_url = macros.img_url(page.header.image, page) %}
+{% if banner_image_url %}
+<style type="text/css" scoped>
+section.banner {
+	background-image: url({{ banner_image_url }});
+}
+</style>
+{% endif %}
+<div class="inner">
+  <h1>{{ page.header.header }}</h1>
+  {% if page.header.buttons %}
+  <ul class="actions">
+    {% for button in page.header.buttons %}
+    <li><a href="{{ button.url }}" class="button alt">{{ button.text }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>

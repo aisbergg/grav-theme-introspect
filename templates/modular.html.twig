@@ -1,0 +1,13 @@
+{% extends 'partials/base.html.twig' %}
+{% import 'macros/macros.html.twig' as macros %}
+
+
+{% if condition %}{% endif %}
+
+{% block body %}
+  {% for module in page.collection() %}
+    <section id="{{ macros.page_link_name(module.menu) }}" class="wrapper {% if loop.first %}first {% endif %}{% if loop.last %}last {% endif %} {{ module.template|split('/')[1] }} {{ page.header.classes }}{% if page.header.style %} style{{module.header.style}}{% endif %}">
+      {{ module.content }}
+    </section>
+  {% endfor %}
+{% endblock %}

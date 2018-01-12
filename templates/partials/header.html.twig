@@ -1,0 +1,11 @@
+<header id="header">
+  <div class="inner">
+    <a href="{{ base_url_absolute }}" class="logo">{{ config.site.title }}</a>
+    <nav id="nav">
+      {% block header_navigation %}
+        {% include 'partials/navigation.html.twig' %}
+      {% endblock %}
+    </nav>
+  </div>
+</header>
+<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
