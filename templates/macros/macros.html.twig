@@ -1,0 +1,13 @@
+{% macro input(name, value, type, size) %}
+  <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}" />
+{% endmacro %}
+
+{% macro img_url(_url, page) %}{% spaceless %}
+{% if _url %}
+    {{ url('user://pages' ~ _url) | default(url(page.route ~ '/' ~ _url)) }}
+    {{ dump(page.route) }}
+    {{ dump(page) }}
+  {% endif %}
+{% endspaceless %}{% endmacro %}
+
+{% macro page_link_name(text) %}{{ text|lower|replace({' ':'-'}) }}{% endmacro %}

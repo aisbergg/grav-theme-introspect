@@ -1,0 +1,55 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+{% import 'macros/macros.html.twig' as macros %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getLanguage ?: 'en' }}">
+  <head>
+    {% block head %}
+    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+    {% include 'partials/metadata.html.twig' %}
+    <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+    {% block stylesheets %}
+      {% do assets.addCss('theme://css/main.css', 10) %}
+      {% if browser.getBrowser == 'msie' and browser.getVersion == 8 %}
+        {% do assets.addJs('theme://js/ie/html5shiv.js') %}
+      {% endif %}
+    {% endblock %}
+    {{ assets.css() }}
+
+    {% block javascripts %}
+      {% do assets.addJs('theme://js/jquery.min.js') %}
+      {% do assets.addJs('theme://js/skel.min.js') %}
+      {% do assets.addJs('theme://js/util.js') %}
+      {% do assets.addJs('theme://js/main.js') %}
+    {% endblock %}
+    {{ assets.js() }}
+
+    {% endblock head %}
+  </head>
+  <body>
+		{% block header %}
+		{% include 'partials/header.html.twig' %}
+    {% endblock %}
+
+    {% block body %}
+    <section id="main" class="wrapper first last">
+      <div class="inner">
+        {% block page_header %}
+          <header>
+            <h1>{{ page.header.title }}</h1>
+            {% if page.header.subtitle %}
+              <p>{{ page.header.subtitle }}</p>
+            {% endif %}
+          </header>
+        {% endblock %}
+        {% block content %}{% endblock %}
+      </div>
+    </section>
+    {% endblock %}
+
+    {% block footer %}
+    {% include 'partials/footer.html.twig' %}
+    {% endblock %}
+  </body>
+</html>

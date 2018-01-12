@@ -1,0 +1,19 @@
+{% macro column_span(span, i) %}{% spaceless %}
+  {% if span %}
+    {% set idx = i % span|length %}
+    {{ span[idx] }}
+  {% else %}
+    4
+  {% endif %}
+{% endspaceless %}{% endmacro %}
+{% set column_content = page.content|split('<hr />') %}
+
+<div class="inner">
+  <div class="row">
+    {% for i in 0..column_content|length - 1 %}
+    <div class="{{ _self.column_span(page.header.columns.span, i) }}u 12u$({{page.header.columns.breakpoint|default('medium')}})">
+      {{ column_content[i] }}
+    </div>
+    {% endfor %}
+  </div>
+</div>

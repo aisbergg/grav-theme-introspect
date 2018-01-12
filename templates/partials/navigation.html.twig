@@ -1,0 +1,18 @@
+{% for page in pages.children.visible %}
+  <a href="{{ page.url }}">
+    {% if page.header.icon %}<i class="fa fa-{{ page.header.icon }}"></i>{% endif %}
+    {{ page.menu }}
+  </a>
+{% endfor %}
+{% for mitem in site.menu %}
+  <a href="{{ mitem.url }}">
+      {% if mitem.icon %}<i class="fa fa-{{ mitem.icon }}"></i>{% endif %}
+      {{ mitem.text }}
+  </a>
+{% endfor %}
+{% if config.plugins.login.enabled and grav.user.username %}
+  <a class="logout" href="{{ uri.addNonce((base_url_relative ~ uri.path)|trim('/') ~ '/task' ~ config.system.param_sep ~ 'login.logout', 'logout-form', 'logout-nonce')|e }}">
+      <i class="fa fa-lock"></i>
+      {{ grav.user.fullname ?: grav.user.username }} {{ 'PLUGIN_LOGIN.BTN_LOGOUT'|t }}
+  </a>
+{% endif %}

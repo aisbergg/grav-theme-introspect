@@ -1,0 +1,15 @@
+<div class="inner">
+  {% for sl in page.header.spotlights %}
+  <article>
+    <div class="content">
+      <header>
+        <h3>{{sl.title}}</h3>
+      </header>
+      <div>
+        <img class="fit" src="{{sl.image}}" alt="{{sl.image_alt}}" />
+      </div>
+      <p>{{sl.text}}</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>

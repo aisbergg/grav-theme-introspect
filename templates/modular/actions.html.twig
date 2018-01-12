@@ -1,0 +1,11 @@
+<div class="inner">
+  <header>
+    <h2>{{ page.header.title }}</h2>
+  </header>
+  {{page.content}}
+  <ul class="actions">
+    {% for button in page.header.buttons %}
+    <li><a href="{{ button.url }}" class="button alt">{{ button.text }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
