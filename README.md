@@ -15,7 +15,7 @@ This Grav theme is a port of the [Introspect theme](https://templated.co/introsp
 
 # Installation
 
-Installing the Introspect theme can be done in one of two ways. Our GPM (Grav Package Manager) installation method enables you to quickly and easily install the theme with a simple terminal command, while the manual method enables you to do so via a zip file.
+Installing the Introspect theme can be done in one of two ways. The GPM (Grav Package Manager) installation method enables you to quickly and easily install the theme with a simple terminal command, while the manual method enables you to do so via a zip file.
 
 The theme by itself is useful, but you may have an easier time getting up and running by installing a skeleton. The [Introspect Site Skeleton](https://github.com/Aisbergg/grav-skeleton-introspect-site) is a self-contained repository for a complete sites which includes: sample content, configuration, theme, and plugins.
 
